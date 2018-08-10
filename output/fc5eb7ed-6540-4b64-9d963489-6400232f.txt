@@ -1,0 +1,18 @@
+Operating system: Android
+                  0.0.0 Linux 3.10.84-perf-gfaa9bea-00221-gcf98ca6 #1 SMP PREEMPT Tue Feb 6 22:46:31 CST 2018 armv8l
+CPU: arm
+     ARMv1 ARM part(0x4100d080) features: half,thumb,fastmult,vfpv2,edsp,neon,vfpv3,vfpv4,idiva,idivt
+     8 CPUs
+
+GPU: UNKNOWN
+
+Crash reason:  SIGILL / ILL_ILLOPC
+Crash address: 0xe5530f78
+Process uptime: not available
+
+Thread 0 (crashed)
+ 0  libbreakpad.so +Java_cn_onlinecache_breakpad_NativeBreakpad_nativeTestCrash
+/Users/yejiurui/Documents/crash/breakpad-for-android/./native_breakpad.cpp:39
+
+file create time:Fri Aug 10 14:55:49 2018
+power by Andye 
