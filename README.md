@@ -1,37 +1,27 @@
 # cocrash
 
 #### 项目介绍
-breakpad的运行脚本，可自动把崩溃文件给转换成具体错误信息的txt文件，注意，该脚本仅能运行在64位的linux机器上
+breakpad的运行脚本，可自动把崩溃文件dmp给转换成具体错误信息的txt文件
 
-#### 软件架构
-软件架构说明
+注意，该脚本仅能运行在64位的linux机器上。
 
+#### 结构说明
 
-#### 安装教程
+`dmp`  存放崩溃原始文件的目录
 
-1. xxxx
-2. xxxx
-3. xxxx
+`house`  存放生成的临时文件
 
-#### 使用说明
+`libso`  存放编译的动态链接库 .so文件和经过处理后的.so.sym文件
 
-1. xxxx
-2. xxxx
-3. xxxx
+`output` 存放编译加工后的崩溃文件，包含具体的错误信息
 
-#### 参与贡献
+`tool`  存放以上所有操作的工具
 
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+`dumpsym.sh`  该脚本是把libso/.so的文件编译为.so.sym文件，并存放在libso下面
 
+`dumptxt.sh`  该脚本是把 dmp文件夹下的 .dmp 崩溃原始文件  和 libso/.so.sym 文件一起，解析为可读的 txt错误信息文件
 
-#### 码云特技
+`crashbuild.py`  该脚本是精准定位到错误的cpp行数，把解析后的错误信息和txt文件一起给合并成一个新的可读错误信息文件
 
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [http://git.mydoc.io/](http://git.mydoc.io/)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+`build.sh`  该脚本是自动化脚本，一次运行上面所有步骤的命令，只需要把原始文件放到dmp目录下，即可在output目录下获取最终的错误信息日志
+
